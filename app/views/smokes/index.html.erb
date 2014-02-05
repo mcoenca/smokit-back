@@ -1,0 +1,33 @@
+<h1>Listing smokes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Smoke date</th>
+      <th>Smoke lat</th>
+      <th>Smoke long</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @smokes.each do |smoke| %>
+      <tr>
+        <td><%= smoke.user_id %></td>
+        <td><%= smoke.smoke_date %></td>
+        <td><%= smoke.smoke_lat %></td>
+        <td><%= smoke.smoke_long %></td>
+        <td><%= link_to 'Show', smoke %></td>
+        <td><%= link_to 'Edit', edit_smoke_path(smoke) %></td>
+        <td><%= link_to 'Destroy', smoke, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Smoke', new_smoke_path %>

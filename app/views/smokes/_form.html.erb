@@ -1,0 +1,33 @@
+<%= form_for(@smoke) do |f| %>
+  <% if @smoke.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@smoke.errors.count, "error") %> prohibited this smoke from being saved:</h2>
+
+      <ul>
+      <% @smoke.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :smoke_date %><br>
+    <%= f.datetime_select :smoke_date %>
+  </div>
+  <div class="field">
+    <%= f.label :smoke_lat %><br>
+    <%= f.text_field :smoke_lat %>
+  </div>
+  <div class="field">
+    <%= f.label :smoke_long %><br>
+    <%= f.text_field :smoke_long %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
